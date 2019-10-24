@@ -14,11 +14,11 @@ defmodule NestedForms.Users.Post do
   def changeset(post, attrs) do
     post
     |> cast(attrs, [:body, :delete])
-    |> set_delete_action(attrs)
+    |> set_delete_action
     |> validate_required([:body])
   end
 
-  defp set_delete_action(changeset, attrs) do
+  defp set_delete_action(changeset) do
     if get_change(changeset, :delete) do
       %{changeset | action: :delete }
     else
