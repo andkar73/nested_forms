@@ -19,7 +19,7 @@ defmodule NestedForms.Users.Post do
   end
 
   defp set_delete_action(changeset, attrs) do
-    if attrs["delete"] == "true" do
+    if get_change(changeset, :delete) do
       %{changeset | action: :delete }
     else
       changeset
