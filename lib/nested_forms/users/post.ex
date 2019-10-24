@@ -13,7 +13,7 @@ defmodule NestedForms.Users.Post do
   @doc false
   def changeset(post, attrs) do
     post
-    |> cast(attrs, [:body], [:delete])
+    |> cast(attrs, [:body, :delete])
     |> set_delete_action(attrs)
     |> validate_required([:body])
   end
